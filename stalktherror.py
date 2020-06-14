@@ -21,7 +21,7 @@ def get_urls(json_dict):
     for i in json_dict["items"]:
         if i["is_answered"]:
             url_list.append(i["link"])
-        count+=1
+        count += 1
         if count == 3 or count == len(i):
             break
 
@@ -29,8 +29,8 @@ def get_urls(json_dict):
         webbrowser.open(i)
 
 
-if __name__ == "__main__": 
-    op, err = execute_return("python test.py")
+def run(file):
+    op, err = execute_return(f"python {file}")
     error_message = err.decode("utf-8").strip().split("\r\n")[-1]
     print(error_message)
     if error_message:
